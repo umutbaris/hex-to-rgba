@@ -14,14 +14,9 @@ class IncludeMehodClass{
 
 		$hex = $this->determineHex($color);
 		$rgb =  array_map('hexdec', $hex);
+		$newAlpha = $this->determineAlpha($alpha);
 
-		if($alpha >= 1){
-			$alpha = 1.0;
-		} else {
-			$alpha = substr( $alpha, 1 );
-		}
-
-		$rgba = 'rgba('.implode(",",$rgb).','.$alpha.')';
+		$rgba = 'rgba('.implode(",",$rgb).','.$newAlpha.')';
 
 		return $rgba;
 	}
@@ -32,7 +27,7 @@ class IncludeMehodClass{
 	 * @param string $color
 	 * @return array
 	 */
-	public function determineHex($color){
+	public function determineHex($color):array{
 		if ($color[0] == '#' ) {
 			$color = substr( $color, 1 );
 		}
@@ -46,6 +41,22 @@ class IncludeMehodClass{
 		}
 
 		return $hex;
+	}
+
+	/**
+	 * Caclulate new alpha
+	 *
+	 * @param float $alpha
+	 * @return string
+	 */
+	public function determineAlpha($alpha):string{
+		if($alpha >= 1){
+			$alpha = 1.0;
+		} else {
+			$alpha = substr( $alpha, 1 );
+		}
+
+		return $alpha;
 	}
 }
 	$class = new IncludeMehodClass();
