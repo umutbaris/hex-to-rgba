@@ -62,14 +62,16 @@ class IncludeMehodClass{
 	 * @return string
 	 */
 	public function checkSquare($color):string{
+
 		if ($color[0] == '#' ) 
 			$color = substr( $color, 1 );
 
 		return $color;
 	}
 }
+
 	$class = new IncludeMehodClass();
-	echo $class->convertHexToRgba('FFF', 0.3 ) . "\n";
-	echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
-	echo $class->convertHexToRgba('FFF', .5 ). "\n";
-	echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
+	echo $class->convertHexToRgba($argv[1], $argv[2]) . "\n";
+	// echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
+	// echo $class->convertHexToRgba('FFF', .5 ). "\n";
+	// echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
