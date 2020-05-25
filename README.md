@@ -11,8 +11,11 @@ Basic CLI app for converting hex values to RGBA and Unit Tests
 | FFFFF 	      |1 (integer)    |throws Error)
 
 * Clone the repository 
+
   ```  git clone https://github.com/umutbaris/hex-to-rgba.git  ```
 
 * Run on CLI examples
+
   ``` $ php classes/IncludeMethodClass.php FFF 0.3``` 
+  
   ``` $ php classes/IncludeMethodClass.php '#FFFFFF' 1 ```

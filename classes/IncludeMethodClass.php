@@ -62,7 +62,6 @@ class IncludeMehodClass{
 	 * @return string
 	 */
 	public function checkSquare($color):string{
-
 		if ($color[0] == '#' ) 
 			$color = substr( $color, 1 );
 
@@ -72,6 +71,6 @@ class IncludeMehodClass{
 
 	$class = new IncludeMehodClass();
 	echo $class->convertHexToRgba($argv[1], $argv[2]) . "\n";
-	// echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
-	// echo $class->convertHexToRgba('FFF', .5 ). "\n";
-	// echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
+	echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
+	echo $class->convertHexToRgba('FFF', .5 ). "\n";
+	echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
