@@ -12,18 +12,7 @@ class IncludeMehodClass{
 		if(empty($color) || empty($alpha))
 		throw new Exception('Please enter a color and alpha vlaue');
 
-		if ($color[0] == '#' ) {
-			$color = substr( $color, 1 );
-		}
-
-		if (strlen($color) == 6) {
-			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-		} elseif ( strlen( $color ) == 3 ) {
-			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
-		} else {
-			throw new Exception('value is not valid');
-		}
-
+		$hex = $this->determineHex($color);
 		$rgb =  array_map('hexdec', $hex);
 
 		if($alpha >= 1){
@@ -36,6 +25,31 @@ class IncludeMehodClass{
 
 		return $rgba;
 	}
+
+	/**
+	 * Determine hex value from color code
+	 *
+	 * @param string $color
+	 * @return array
+	 */
+	public function determineHex($color){
+		if ($color[0] == '#' ) {
+			$color = substr( $color, 1 );
+		}
+
+		if (strlen($color) == 6) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( strlen( $color ) == 3 ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			throw new Exception('value is not valid');
+		}
+
+		return $hex;
+	}
 }
 	$class = new IncludeMehodClass();
-	echo $class->convertHexToRgba('FFFFFF', 1 );
+	echo $class->convertHexToRgba('FFF', 0.3 ) . "\n";
+	echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
+	echo $class->convertHexToRgba('FFF', .5 ). "\n";
+	echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
