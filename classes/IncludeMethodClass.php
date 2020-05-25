@@ -10,7 +10,7 @@ class IncludeMehodClass{
 	 */
 	public function convertHexToRgba( string $color, float $alpha ):string {
 		if(empty($color) || empty($alpha))
-		throw new Exception('Please enter a color and alpha vlaue');
+			throw new Exception('Please enter a color and alpha vlaue');
 
 		$hex = $this->determineHex($color);
 		$rgb =  array_map('hexdec', $hex);
@@ -28,9 +28,7 @@ class IncludeMehodClass{
 	 * @return array
 	 */
 	public function determineHex($color):array{
-		if ($color[0] == '#' ) {
-			$color = substr( $color, 1 );
-		}
+		$color = $this->checkSquare($color);
 
 		if (strlen($color) == 6) {
 			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
@@ -55,6 +53,19 @@ class IncludeMehodClass{
 			$newAlpha = substr( $alpha, 1 );
 
 		return $newAlpha;
+	}
+
+	/**
+	 * Check color value to exist square value
+	 *
+	 * @param array $color
+	 * @return string
+	 */
+	public function checkSquare($color):string{
+		if ($color[0] == '#' ) 
+			$color = substr( $color, 1 );
+
+		return $color;
 	}
 }
 	$class = new IncludeMehodClass();
