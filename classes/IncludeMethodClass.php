@@ -14,8 +14,8 @@ class IncludeMehodClass{
 
 		$hex = $this->determineHex($color);
 		$rgb =  array_map('hexdec', $hex);
+		
 		$newAlpha = $this->determineAlpha($alpha);
-
 		$rgba = 'rgba('.implode(",",$rgb).','.$newAlpha.')';
 
 		return $rgba;
@@ -50,13 +50,11 @@ class IncludeMehodClass{
 	 * @return string
 	 */
 	public function determineAlpha($alpha):string{
-		if($alpha >= 1){
-			$alpha = 1.0;
-		} else {
-			$alpha = substr( $alpha, 1 );
-		}
+		$newAlpha = 1.0;
+		if($alpha < 1)
+			$newAlpha = substr( $alpha, 1 );
 
-		return $alpha;
+		return $newAlpha;
 	}
 }
 	$class = new IncludeMehodClass();
