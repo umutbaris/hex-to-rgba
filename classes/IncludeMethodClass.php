@@ -8,7 +8,7 @@ class IncludeMehodClass{
 	 * @param float $alpha
 	 * @return string
 	 */
-	public function convertHexToRgba( string $color, float $alpha ):string {
+	public function convertHexToRgba(string $color, float $alpha):string {
 		if(empty($color) || empty($alpha))
 			throw new Exception('Please enter a color and alpha vlaue');
 
@@ -70,7 +70,7 @@ class IncludeMehodClass{
 }
 
 	$class = new IncludeMehodClass();
-	echo $class->convertHexToRgba($argv[1], $argv[2]) . "\n";
-	// echo $class->convertHexToRgba('#FFFFFF', 1 ). "\n";
-	// echo $class->convertHexToRgba('FFF', .5 ). "\n";
-	// echo $class->convertHexToRgba('FFFFFF', 1 ). "\n";
+	/**To run on CLI */
+	if(!empty($argv[1]) && !empty($argv[2])) {
+		echo $class->convertHexToRgba($argv[1], $argv[2]) . "\n";
+	}
