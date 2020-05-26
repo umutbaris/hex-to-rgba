@@ -17,5 +17,11 @@ Basic CLI app for converting hex values to RGBA and Unit Tests
 * Run on CLI examples
 
   ``` $ php classes/IncludeMethodClass.php FFF 0.3``` 
-  
+
   ``` $ php classes/IncludeMethodClass.php '#FFFFFF' 1 ```
+
+## Running Unit Tests 
+
+```$ vendor/bin/phpunit tests/test.php```
+
+Tips: Don't forget to run composer install command  before run to CLI app and unit tests.
